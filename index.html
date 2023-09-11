@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="caixa.css">
+    <title>Caixa Eletrônico</title>
+    <script>
+        var saldo = 1000.00;
+        var senha = "3589";
+        var extrato = ["Depósito de R$1000.00 em 01/09/2023"];
+
+        function saudacao() {
+            var nome = prompt("Digite seu nome:");
+            alert("Olá " + nome + ", é um prazer ter você por aqui!");
+            menu();
+        }
+
+        function menu() {
+            var opcao = prompt("Escolha uma opção:\n1. Saldo\n2. Extrato\n3. Saque\n4. Depósito\n5. Transferência\n6. Sair");
+
+            switch (opcao) {
+                case "1":
+                    senha = prompt("Digite sua senha:");
+                    if (senha === "3589") {
+                        alert("Seu saldo atual é: R$" + saldo.toFixed(2));
+                    } else {
+                        alert("Senha incorreta. Tente novamente.");
+                    }
+                    break;
+
+                case "2":
+                    senha = prompt("Digite sua senha:");
+                    if (senha === "3589") {
+                        alert("Extrato:\n" + extrato.join("\n"));
+                    } else {
+                        alert("Senha incorreta. Tente novamente.");
+                    }
+                    break;
+
+                case "3":
+                    senha = prompt("Digite sua senha:");
+                    if (senha === "3589") {
+                        var valorSaque = parseFloat(prompt("Digite o valor que deseja sacar:"));
+                        if (valorSaque <= 0 || isNaN(valorSaque)) {
+                            alert("Operação não autorizada. O valor do saque deve ser maior que zero.");
+                        } else if (valorSaque > saldo) {
+                            alert("Operação não autorizada. Saldo insuficiente.");
+                        } else {
+                            saldo -= valorSaque;
+                            extrato.push("Saque de R$" + valorSaque.toFixed(2) + " em " + obterDataAtual());
+                            alert("Saque de R$" + valorSaque.toFixed(2) + " realizado com sucesso.");
+                        }
+                    } else {
+                        alert("Senha incorreta. Tente novamente.");
+                    }
+                    break;
+
+                case "4":
+                    senha = prompt("Digite sua senha:");
+                    if (senha === "3589") {
+                        var valorDeposito = parseFloat(prompt("Digite o valor que deseja depositar:"));
+                        if (valorDeposito <= 0 || isNaN(valorDeposito)) {
+                            alert("Operação não autorizada. O valor do depósito deve ser maior que zero.");
+                        } else {
+                            saldo += valorDeposito;
+                            extrato.push("Depósito de R$" + valorDeposito.toFixed(2) + " em " + obterDataAtual());
+                            alert("Depósito de R$" + valorDeposito.toFixed(2) + " realizado com sucesso.");
+                        }
+                    } else {
+                        alert("Senha incorreta. Tente novamente.");
+                    }
+                    break;
+
+                case "5":
+                    senha = prompt("Digite sua senha:");
+                    if (senha === "3589") {
+                        var numeroConta = prompt("Digite o número da conta de destino:");
+                        if (!isNaN(numeroConta)) {
+                            var valorTransferencia = parseFloat(prompt("Digite o valor que deseja transferir:"));
+                            if (valorTransferencia <= 0 || isNaN(valorTransferencia)) {
+                                alert("Operação não autorizada. O valor da transferência deve ser maior que zero.");
+                            } else if (valorTransferencia > saldo) {
+                                alert("Operação não autorizada. Saldo insuficiente.");
+                            } else {
+                                saldo -= valorTransferencia;
+                                extrato.push("Transferência de R$" + valorTransferencia.toFixed(2) + " para a conta " + numeroConta + " em " + obterDataAtual());
+                                alert("Transferência de R$" + valorTransferencia.toFixed(2) + " para a conta " + numeroConta + " realizada com sucesso.");
+                            }
+                        } else {
+                            alert("Número de conta inválido. Apenas números são permitidos.");
+                        }
+                    } else {
+                        alert("Senha incorreta. Tente novamente.");
+                    }
+                    break;
+
+                case "6":
+                    var nome = prompt("Digite seu nome:");
+                    alert(nome + ", foi um prazer ter você por aqui!");
+                    break;
+
+                default:
+                    alert("Opção inválida. Tente novamente.");
+                    break;
+            }
+            menu();
+        }
+
+        function obterDataAtual() {
+            var data = new Date();
+            var dia = data.getDate();
+            var mes = data.getMonth() + 1;
+            var ano = data.getFullYear();
+            return dia + "/" + mes + "/" + ano;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Caixa Eletrônico</h1>
+    <button onclick="saudacao()">Acessar o Caixa Eletrônico</button>
+</body>
+
+</html>

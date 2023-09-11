@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+
+        background: url("baixados\ \(6\).jpg") no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        height: 200vh;
+    
+}
+ 
+
+h1 {
+    text-align: center;
+    background-color: #8600d4;
+    color: #fff;
+    padding: 40px;
+    margin: 0;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 20px 30px;
+    background-color: #b424ec;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #460b27;
+}
+
+input[type="password"],
+input[type="number"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.dialog {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.alert {
+    background-color: #ff7575;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.success {
+    background-color: #6bbf59;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu li:last-child {
+    margin-bottom: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 0;
+}
+
+.menu a:hover {
+    background-color: #f0f0f0;
+}
